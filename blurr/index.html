@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlurrLoader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="bg"></section>
+    <div class="loadtext">0</div>
+    
+</body>
+<script>
+    let load=0;
+    const bgg=document.querySelector(".bg");
+    const loadtext=document.querySelector(".loadtext");
+    let time=setInterval(loading,30);
+    function loading()
+    {
+        load++;
+        if(load>99)
+        {
+            clearInterval(time);
+        }
+        loadtext.innerHTML=`${load}%`;
+        bgg.style.filter=`blur(${30-((30*load)/100)}px)`;
+        loadtext.style.opacity=`${1-(load/100)}`
+    }
+
+</script>
+</html>
